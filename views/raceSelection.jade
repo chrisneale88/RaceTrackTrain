@@ -1,0 +1,26 @@
+extends ./layout.jade
+block stylesheet
+  link(rel='stylesheet', href="/css/login.css" )
+block scripts
+block content
+  - var raceNames = racenames;
+  - var raceInfo = raceinfo;
+  - var adminRights = adminrights;
+  div.wrapper
+    div.container
+      h1 Select a Race
+      form(name="raceSelect",method="POST",action="/viewer")
+        select(name="races")
+          option(value="",selected="selected") Available Races
+          each name in raceNames
+            option(value= name)= name
+        button(type="submit", id="select-button") Watch Race
+      if(adminRights == true)
+        hr
+        h1 Create a Race
+        form(name="raceCreate",method="GET",action="/createRace")
+          button(type="submit", id="select-button") New Race
+          hr
+        h1 Create a Team
+        form(name="teamCreate",method="GET",action="/createTeam")
+          button(type="submit", id="select-button") New Team

@@ -1,0 +1,32 @@
+extends layout
+block stylesheet
+  link(rel='stylesheet', href="/css/login.css" )
+block scripts
+block content
+  - var errorMessage = errormessage;
+  div.wrapper
+    div.container
+      h1 Welcome to
+      h2 Race Track Train
+      form(name="loginForm",method="POST",action="/checkUser")
+        input(name="userName",placeholder="Username")
+        input(name="password",placeholder="Password",type="password")
+        button(type="submit",id="login-button") Login
+      if(errorMessage)
+        p(style="color:red")=errorMessage
+      else
+    //- To be changed to waves at a later date.    
+    ul.bg-bubbles
+      li
+      li
+      li
+      li
+      li
+      li
+      li
+      li
+      li
+      li
+
+script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+//script(src="/scripts/index.js")
