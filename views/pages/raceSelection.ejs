@@ -1,0 +1,30 @@
+<!-- views/pages/raceSelection -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <%
+        var raceNames = racenames;
+        var raceInfo = raceinfo;
+        var adminRights = adminrights;
+      %>
+
+    <div class="wrapper">
+        <div class="container">
+            <h1>Select a Race</h1>
+            <form name="raceSelect" method="post" action="/viewer">
+                <select name="races">
+                    <option value="" selected="selected">Available Races</option>
+                    <% raceNames.forEach(function(name) { %>
+                        <option value="<%= name%>"><%=name%>%></option>
+                   <% });%>
+                </select>
+                <button type="submit" id="select-button">Watch Race</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
