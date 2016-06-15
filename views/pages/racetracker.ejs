@@ -1,0 +1,40 @@
+<!-- views/pages/racetracker.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+
+    <!-- CSS (load bootstrap from a CDN)
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    -->
+
+    <!-- Load main CSS file -->
+    <link rel="stylesheet" href="./stylesheets/index.css">
+
+    <!-- Load scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/javascripts/GoogleMapTracking"></script>
+</head>
+<body>
+    <aside id="leaderboard">
+        <h1>Leaderboard</h1>
+        <ol id="leaderboardlist">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ol>
+    </aside>
+
+    <div id="content">
+        <div id="map-canvas"></div>
+        <canvas id="mag-canvas"></canvas>
+        <div id="geoDiv"></div>
+    </div>
+
+    <% $(document).ready(initialize());%>
+</body>

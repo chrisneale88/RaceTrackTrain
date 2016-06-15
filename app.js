@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 // Routes
 var index = require('./routes/index.js');
+var about = require('./routes/about.js');
 var viewer = require('./routes/viewer.js');
 var user = require('./routes/checkUser.js');
 
@@ -14,16 +15,17 @@ var app = express();
 //var async = require("async");
 
 // View Engine Setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views/pages'));
 app.set('view engine', 'ejs');
 
 // Configure Server Instance
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname + 'static')));
+app.use(express.static(__dirname + '/public'));
 
 app.use('/', index);
+app.use('/about', about);
 app.use('/checkuser', user);
 app.use('/viewer', viewer);
 

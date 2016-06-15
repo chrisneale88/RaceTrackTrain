@@ -1,15 +1,15 @@
 @charset "UTF-8";
 /* Main CSS Document */
 html, body, #content {
-   	height: 100%;
-   	margin: 0px;
-   	padding: 0px
+    height: 100%;
+    margin: 0px;
+    padding: 0px
 }
 
 #leaderboard {
-  	background-color: #28B3B1;
+    background-color: #28B3B1;
     height: 100%;
-  	float: left;
+    float: left;
     width: 15%;
     border-right: solid;
     border-width: medium;
@@ -22,8 +22,8 @@ html, body, #content {
 }
 
 #map-canvas {
-  	float: left;
-  	width: 100%;
+    float: left;
+    width: 100%;
     height: 75%;
     background-color: #880000;
 
