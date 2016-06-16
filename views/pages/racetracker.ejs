@@ -17,7 +17,7 @@
     <!-- Load scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="/javascripts/GoogleMapTracking"></script>
+    <script src="./javascripts/GoogleMapTracking.js"></script>
 </head>
 <body>
     <aside id="leaderboard">
@@ -36,5 +36,7 @@
         <div id="geoDiv"></div>
     </div>
 
-    <% $(document).ready(initialize());%>
+    <script type="application/javascript">
+        {$(document).ready(initialize());}
+    </script>
 </body>

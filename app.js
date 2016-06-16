@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var dbapi = require('./utils/crud');
 
 // Routes
 var index = require('./routes/index.js');
@@ -36,7 +37,13 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+dbapi.getusers(function(results) {
+  results.forEach(function(item) {
+    console.log(item.firstName + " " + item.lastName);
+  });
+});
 // Error Handlers
+
 
 
 // Development Error Handler
