@@ -3,26 +3,32 @@
  */
 /* ./utils/crud.js */
 
-/* Open connection to Mongo database */
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/racetracktrain');
-var db = mongoose.connection;
 var schemas = require('./schemas');
 
 var Users = mongoose.model('users', schemas.userschema);
-var Racers = mongoose.model('races', schemas.raceschema);
-
-db.on('error', console.error.bind(console, 'connection error:'));
+var Races = mongoose.model('races', schemas.raceschema);
 
 function authenticateUser(username, password, callback) {
+
+    /* Open connection to Mongo database */
+    mongoose.connect('mongodb://localhost/racetracktrain');
+
+    var db = mongoose.connection;
     db.once('open', function() {
        Users.findOne({'userName': username, 'password' : password}, function(err, results) {
-
+           db.close();
            // TODO Handle Errors
-           //if(err) callback(err);
+           if(err) {
 
-           if(results !== null) callback(true);
-           else callback(false);
+               callback(err, null);
+           }
+           if(results !== null) {
+               callback(err, true);
+           }
+           else {
+               callback(err, false);
+           }
        });
     });
 }
@@ -46,6 +52,41 @@ function getAllUsers(callback){
     });
 }
 
+function getAllRaces(callback) {
+    /* Open connection to Mongo database */
+    mongoose.connect('mongodb://localhost/racetracktrain');
+
+    db.once('open', function() {
+        Races.find(function(err, races) {
+            db.close();
+            if(err) {
+                callback(err);
+            }
+            callback(races);
+        });
+    });
+}
+
+function addRace(raceInfo, callback) {
+    /* Open connection to Mongo database */
+    mongoose.connect('mongodb://localhost/racetracktrain');
+
+    var race = new Races(raceInfo);
+    race.save(function(err) {
+        if(err) {
+            console.log(err);
+            callback(err);
+        } else {
+            console.log("successfully added race: " + raceInfo);
+            callback(raceInfo);
+        }
+
+    })
+}
+
 module.exports.getallusers = getAllUsers;
 module.exports.getuser = getUser;
 module.exports.authenticateuser = authenticateUser;
+module.exports.getallraces = getAllRaces;
+
+module.exports.addrace = addRace;

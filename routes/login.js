@@ -7,14 +7,30 @@ var pool = mysql.createPool ({
 	password	: 'toor',
 	database: 'racetracktrain'
 });
-var crud = require('./utils/crud');
+var crud = require('../utils/crud');
 
 router.post('/', function( req, res, next ) {
+
   try {
-        var username = req.body.userName;
-        var password = req.body.password;
 
-
+      var username = req.body.userName;
+      var password = req.body.password;
+      crud.authenticateuser(username, password, function(error, isAuthentic) {
+          
+          if(error) {
+              console.error("Error: " + err);
+              res.render('error');
+          }
+          if(isAuthentic) {
+              console.log("User: " + username + " has logged in at " + new Date().getTime());
+              res.render('raceSelection', {racenames: ["Keppel to Mackay"],
+                                            raceinfo: "15/05/1988",
+                                            adminrights: true});
+          } else {
+              res.send("Incorrect");
+          }
+      });
+      
             /* MYSQL VARIANT
             var sql = "SELECT * FROM user WHERE ?? = ? AND ?? = ?";
             var inserts = ['user_username', username, 'user_password', password];

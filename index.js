@@ -11,7 +11,7 @@ router.get('/racetracker', function(req,res){
 })
 
 /* POST to check for valid login */
-router.post("/checkUser", function(req, res) {
+router.post("/login", function(req, res) {
     var username = req.body.userName;
     var password = req.body.userPassword;
     var serialPort = req.serialPort;

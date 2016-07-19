@@ -3,12 +3,13 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+//var crud = require('./utils/crud');
 
 // Routes
 var index = require('./routes/index.js');
 var about = require('./routes/about.js');
 var viewer = require('./routes/viewer.js');
-var user = require('./routes/checkUser.js');
+var login = require('./routes/login.js');
 
 var app = express();
 //var io = require("socket.io").listen(app);
@@ -26,7 +27,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', index);
 app.use('/about', about);
-app.use('/checkuser', user);
+app.use('/login', login);
 app.use('/viewer', viewer);
 
 // Catch 404 and forward to the error handlers
@@ -35,6 +36,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // Error Handlers
 

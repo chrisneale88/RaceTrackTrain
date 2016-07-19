@@ -7,33 +7,69 @@ html, body, #content {
 }
 
 #leaderboard {
-    background-color: #28B3B1;
-    height: 100%;
+
+    text-align: center;
+    background: #669ECC;
+    background: -webkit-linear-gradient(bottom, #669ECC 0%, #8CC2D9 100%);
+    background: linear-gradient(to top, #669ECC 0%, #8CC2D9 100%);
+    -webkit-border-radius: 20px 5px 20px 5px;
+    -moz-border-radius: 20px 5px 20px 5px;
+    border-radius: 20px 5px 20px 5px;
+    opacity: 0.8;
+    padding: 1%;
+    height: 80%;
     float: left;
+    position: absolute;
+    top: -400px;
+
     width: 15%;
-    border-right: solid;
+    border: solid;
     border-width: medium;
+    margin-left: 2%;
+    margin-top: 3%;
+    z-index: 1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
 }
 
+#leaderboard:hover {
+    opacity: 1;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -ms-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+
 #content {
-    float: left;
-    width: 84%;
+    width: 100%;
     height: 100%;
+
 }
 
 #map-canvas {
     float: left;
     width: 100%;
-    height: 75%;
+    height: 100%;
     background-color: #880000;
+    z-index: 0;
 
 }
+
+/* USED TO DISPLAY COMPASS
 #geoDiv {
     background-color: #00B7FF;
     height:25%;
     width: 50%;
     float: left;
 }
+
 
 #mag-canvas {
     float: left;
@@ -43,3 +79,5 @@ html, body, #content {
     padding: 0;
     background-color: #330033;
 }
+*/
+

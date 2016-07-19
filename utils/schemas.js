@@ -1,7 +1,7 @@
 /**
  * Created by Karen on 16/06/2016.
  */
-/** ./routes/schemas.js */
+/** ./utils/schemas.js */
 
 module.exports.userschema = {
 

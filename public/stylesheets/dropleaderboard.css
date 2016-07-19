@@ -1,0 +1,47 @@
+#leaderboard {
+
+    animation-name: dropBoard;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 1.0s;
+
+    -moz-animation-name: dropBoard;
+    -moz-animation-delay: 2s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease-out;
+    -moz-animation-duration: 1.0s;
+
+    -webkit-animation-name: dropBoard;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-duration: 1.0s;
+}
+
+@-moz-keyframes dropBoard {
+    0% {
+        -moz-transform: translateY(-400px);
+    }
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+@-webkit-keyframes dropBoard {
+    0% {
+        -webkit-transform: translateY(-400px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+    }
+}
+@keyframes dropBoard {
+    0% {
+        transform: translateY(-400px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
